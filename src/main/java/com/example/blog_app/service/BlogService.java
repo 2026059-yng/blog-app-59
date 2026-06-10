@@ -22,6 +22,11 @@ public class BlogService {
         return blogAppRepository.findAll();
     }
 
+    public Blog getBlogById(int id) {
+        return blogAppRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("指定されたブログが見つかりません。ID: " + id));
+    }
+
     // ブログを投稿
     public void addBlogContent(BlogForm blogForm, String username) {
 

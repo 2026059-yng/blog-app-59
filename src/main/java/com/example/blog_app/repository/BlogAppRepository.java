@@ -6,6 +6,7 @@ import com.example.blog_app.model.Blog;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -17,6 +18,11 @@ public class BlogAppRepository {
     public List<Blog> findAll() {
         String sql = "SELECT id, user_id AS userId, title, post_content AS content, created_at AS createdAt, updated_at AS updatedAt FROM posts";
         return jdbcClient.sql(sql).query(Blog.class).list();
+    }
+
+    public Optional<Blog> findById(int id) {
+        String sql = "SELECT id, user_id AS userId, title, post_content AS content, created_at AS createdAt, updated_at AS updatedAt FROM posts WHERE id = ?";
+        return jdbcClient.sql(sql).param(id).query(Blog.class).optional();
     }
 
     public void save(Blog blog) {
