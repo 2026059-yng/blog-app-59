@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ブログ詳細</title>
+</head>
+
+<body>
+
+    <h1 th:text="${blog.title}">ブログのタイトル</h1>
+
+    <p>
+        <small>投稿日時: <span th:text="${blog.createdAt}">2026-06-10</span></small> |
+        <small>ユーザーID: <span th:text="${blog.userId}">1</span></small>
+    </p>
+    <hr>
+
+    <p th:text="${blog.content}">ここにブログの本文がすべて表示されます。</p>
+
+    <hr>
+    <br>
+    <a th:href="@{/}">ブログ一覧に戻る</a>
+
+</body>
+
+</html>

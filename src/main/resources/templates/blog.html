@@ -3,36 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>ブログアプリ</title>
+    <title>ブログ一覧</title>
 </head>
 
 <body>
 
     <h1>ブログ一覧</h1>
+
+    <p><a th:href="@{/blog/new}">📝 新しいブログを書く</a></p>
+    <hr>
+
     <div th:each="blog : ${blogList}">
-        <h3 th:text="${blog.title}">ブログのタイトル</h3>
-        <p th:text="${blog.content}">ブログの本文が入ります。</p>
+        <h3>
+            <a th:href="@{/blog/{id}(id=${blog.id})}" th:text="${blog.title}">ブログのタイトル</a>
+        </h3>
         <p>
-            <small>投稿日時: <span th:text="${blog.createdAt}">2026-01-01T00:00:00</span></small>
-            <small>（ユーザーID: <span th:text="${blog.userId}">1</span>）</small>
+            <small>投稿日時: <span th:text="${blog.createdAt}">2026-06-10</span></small>
         </p>
         <hr>
     </div>
-
-    <h2>新規ブログ投稿</h2>
-    <form th:action="@{/blog/post}" method="post">
-        <div>
-            <label for="title">タイトル：</label><br>
-            <input type="text" id="title" name="title" required maxlength="100">
-        </div>
-        <br>
-        <div>
-            <label for="content">内容：</label><br>
-            <textarea id="content" name="content" rows="5" cols="40" required></textarea>
-        </div>
-        <br>
-        <button type="submit">投稿する</button>
-    </form>
 
     <br>
     <a th:href="@{/login}">ログイン画面へ</a>
