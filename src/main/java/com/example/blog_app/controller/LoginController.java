@@ -18,7 +18,7 @@ public class LoginController {
         if ("user".equals(username) && "password".equals(password)) {
             //セッションに「loginUser」という名前でユーザー名を保存
             session.setAttribute("loginUser", username);
-            return "redirect:/home";
+            return "redirect:/";
         }
         // 失敗したらログイン画面に戻す
         return "login";
