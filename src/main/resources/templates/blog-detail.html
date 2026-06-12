@@ -4,9 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>ブログ詳細</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
+
+    <div class="nav-container">
+        <button class="btn" th:onclick="|location.href='@{/}'|">ホーム</button>
+        <button class="btn" th:onclick="|location.href='@{/blog/new}'|">投稿</button>
+    </div>
 
     <h1 th:text="${blog.title}">ブログのタイトル</h1>
 
@@ -19,8 +25,8 @@
     <p th:text="${blog.content}">ここにブログの本文がすべて表示されます。</p>
 
     <hr>
-    <br>
-    <a th:href="@{/}">ブログ一覧に戻る</a>
+
+    <button class="btn" th:onclick="|location.href='@{/}'|">ブログ一覧に戻る</button>
 
 </body>
 

@@ -4,28 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>新規ブログ投稿</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
+
+    <div class="nav-container">
+        <button class="btn" th:onclick="|location.href='@{/}'|">ホーム</button>
+        <button class="btn" th:onclick="|location.href='@{/blog/new}'|">投稿</button>
+    </div>
 
     <h1>新規ブログ投稿</h1>
 
     <form th:action="@{/blog/post}" method="post">
         <div>
             <label for="title">タイトル：</label><br>
-            <input type="text" id="title" name="title" required maxlength="100">
+            <input type="text" id="title" name="title" required maxlength="100"
+                style="width: 100%; max-width: 500px; padding: 5px;">
         </div>
         <br>
         <div>
             <label for="content">内容：</label><br>
-            <textarea id="content" name="content" rows="10" cols="50" required></textarea>
+            <textarea id="content" name="content" rows="10" cols="50" required
+                style="width: 100%; max-width: 500px; padding: 5px;"></textarea>
         </div>
         <br>
-        <button type="submit">投稿する</button>
+        <button type="submit" class="btn btn-primary">投稿する</button>
     </form>
-
-    <br>
-    <a th:href="@{/}">一覧に戻る</a>
 
 </body>
 

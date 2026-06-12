@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>ブログ一覧</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <h1>ブログ一覧</h1>
+    <div class="nav-container">
+        <button class="btn" th:onclick="|location.href='@{/}'|">ホーム</button>
+        <button class="btn" th:onclick="|location.href='@{/blog/new}'|">投稿</button>
+    </div>
 
-    <p><a th:href="@{/blog/new}">新規投稿</a></p>
+    <h1>ブログ一覧</h1>
     <hr>
 
     <div th:each="blog : ${blogList}">
@@ -24,7 +28,7 @@
     </div>
 
     <br>
-    <a th:href="@{/login}">ログイン画面へ</a>
+    <button class="btn" th:onclick="|location.href='@{/login}'|">ログイン画面へ</button>
 
 </body>
 
